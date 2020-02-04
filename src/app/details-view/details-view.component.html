@@ -18,8 +18,8 @@
 </div>
 <button *ngIf="numberOfQuestion <= 1 || disabledButtons" disabled style="margin-top: 20px; margin-left: 10px;" mat-stroked-button color="primary" (click)="goBack()">Previous</button>
 <button *ngIf="numberOfQuestion > 1 && !disabledButtons" style="margin-top: 20px; margin-left: 10px;" mat-stroked-button color="primary" (click)="goBack()">Previous</button>
-<button *ngIf="!disabledButtons" style="margin-top: 20px; margin-left: 10px;" mat-stroked-button color="primary" (click)="goNextQ()">{{buttonName}}</button>
-<button *ngIf="disabledButtons" style="margin-top: 20px; margin-left: 10px;" disabled mat-stroked-button color="primary" (click)="goNextQ()">{{buttonName}}</button>
+<button *ngIf="!disabledButtons && questions[numberOfQuestion-1].answer" style="margin-top: 20px; margin-left: 10px;" mat-stroked-button color="primary" (click)="goNextQ()">{{buttonName}}</button>
+<button *ngIf="disabledButtons || !questions[numberOfQuestion-1].answer" style="margin-top: 20px; margin-left: 10px;" disabled mat-stroked-button color="primary" (click)="goNextQ()">{{buttonName}}</button>
 <button *ngIf="disabledButtons" style="margin-top: 20px; margin-left: 10px;" mat-stroked-button color="primary" [routerLink]="['/']" routerLinkActive="router-link-active">Change Subject</button>
 
 

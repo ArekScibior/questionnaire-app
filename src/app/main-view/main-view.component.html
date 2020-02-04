@@ -2,8 +2,8 @@
   <mat-toolbar>Hello in my {{title}}! Please choose type of subject.</mat-toolbar>
 
   <mat-nav-list>
-    <a mat-list-item *ngFor="let link of links; index as subjectId"> 
-      <a [routerLink]="['/subjects', subjectId]">{{link.fullName}}</a>
+    <a [routerLink]="['/subjects', subjectId]" mat-list-item *ngFor="let link of links; index as subjectId"> 
+      {{link.fullName}}
     </a>
   </mat-nav-list>
 </div>
