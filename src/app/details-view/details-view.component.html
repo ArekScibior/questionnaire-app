@@ -1,3 +1,25 @@
-<p>
-  details-view works!
-</p>
+<div class='container-fluid'>
+  <mat-toolbar>
+    Subject: {{data.fullName}} <br><hr>
+    {{questions[numberOfQuestion-1].nameQ}}?<br><hr> 
+    Question {{numberOfQuestion}} from {{questions.length}} 
+  </mat-toolbar>
+  <div>
+    <mat-radio-group
+      aria-labelledby="example-radio-group-label"
+      class="example-radio-group"
+      [(ngModel)]="questions[numberOfQuestion-1].answer">
+      <mat-radio-button style="margin-top:10px;" class="example-radio-button radio-button margin-left-10" *ngFor="let option of questions[numberOfQuestion-1].options" [value]="option">
+        {{option}} <br>
+      </mat-radio-button>
+    </mat-radio-group>
+    <div class='margin-left-10 margin-top-10'>Your answer is: {{questions[numberOfQuestion-1].answer}}</div>
+  </div>
+</div>
+<button *ngIf="numberOfQuestion <= 1 || disabledButtons" disabled style="margin-top: 20px; margin-left: 10px;" mat-stroked-button color="primary" (click)="goBack()">Previous</button>
+<button *ngIf="numberOfQuestion > 1 && !disabledButtons" style="margin-top: 20px; margin-left: 10px;" mat-stroked-button color="primary" (click)="goBack()">Previous</button>
+<button *ngIf="!disabledButtons" style="margin-top: 20px; margin-left: 10px;" mat-stroked-button color="primary" (click)="goNextQ()">{{buttonName}}</button>
+<button *ngIf="disabledButtons" style="margin-top: 20px; margin-left: 10px;" disabled mat-stroked-button color="primary" (click)="goNextQ()">{{buttonName}}</button>
+<button *ngIf="disabledButtons" style="margin-top: 20px; margin-left: 10px;" mat-stroked-button color="primary" [routerLink]="['/']" routerLinkActive="router-link-active">Change Subject</button>
+
+
