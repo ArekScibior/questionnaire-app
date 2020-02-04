@@ -1,0 +1,33 @@
+{ "data": [
+        {
+            "fullName": "Wakacje",
+            "shortName": "1",
+            "questions": [
+                {"nameQ": "Pierwsze pytanie", "options": ["a", "b", "c"]},
+                {"nameQ": "Drugie pytanie", "options": ["a", "b", "c"]},
+                {"nameQ": "Trzecie pytanie", "options": ["a", "b", "c"]},
+                {"nameQ": "Czwarte pytanie", "options": ["a", "b", "c"]}
+            ]
+        },
+        {
+            "fullName": "Praca",
+            "shortName": "2",
+            "questions": [
+                {"nameQ": "Pierwsze pytanie", "options": ["a", "b", "c"]},
+                {"nameQ": "Drugie pytanie", "options": ["a", "b", "c"]},
+                {"nameQ": "Trzecie pytanie", "options": ["a", "b", "c"]},
+                {"nameQ": "Czwarte pytanie", "options": ["a", "b", "c"]}
+            ]
+        },
+        {
+            "fullName": "Szkoła",
+            "shortName": "3",
+            "questions": [
+                {"nameQ": "Pierwsze pytanie", "options": ["a", "b", "c"]},
+                {"nameQ": "Drugie pytanie", "options": ["a", "b", "c"]},
+                {"nameQ": "Trzecie pytanie", "options": ["a", "b", "c"]},
+                {"nameQ": "Czwarte pytanie", "options": ["a", "b", "c"]}
+            ]
+        }
+    ]
+}

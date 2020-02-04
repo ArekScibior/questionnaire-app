@@ -1,0 +1,16 @@
+{
+    "topics": [
+        {
+            "fullName": "Wakacje",
+            "shortName": "1"
+        },
+        {
+            "fullName": "Praca",
+            "shortName": "2"
+        },
+        {
+            "fullName": "Szkoła",
+            "shortName": "3"
+        }
+    ]
+}
