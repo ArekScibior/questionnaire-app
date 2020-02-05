@@ -2,3 +2,15 @@
 
 html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+.mat-radio-button.mat-accent.mat-radio-checked .mat-radio-outer-circle{
+    border-color:rgb(126, 40, 160); 
+}
+
+.mat-radio-button.mat-accent .mat-radio-inner-circle{
+    color:rgb(126, 40, 160);
+    background-color:rgb(126, 40, 160) ;
+}
+
+.mat-radio-button.mat-accent .mat-radio-ripple .mat-ripple-element {
+    background-color:rgb(126, 40, 160)
+}
