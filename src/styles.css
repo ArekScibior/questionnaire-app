@@ -14,3 +14,10 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 .mat-radio-button.mat-accent .mat-radio-ripple .mat-ripple-element {
     background-color:rgb(126, 40, 160)
 }
+
+.center-links {
+    font-size: 16px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
