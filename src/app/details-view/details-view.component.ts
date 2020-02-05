@@ -2,6 +2,7 @@ import { Component, OnInit, ChangeDetectorRef } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import {MatDialog, MatDialogConfig} from "@angular/material";
 import { DialogOverviewComponent } from '../dialogOverview/dialogOverview.component';
+import { SaveToXlsService } from '../services/save-to-xls.service';
 import { data } from '../../assets/dataQuestionnaire.json';
 
 
@@ -20,7 +21,8 @@ export class DetailsViewComponent implements OnInit {
 	constructor(
 		private route: ActivatedRoute, 
 		public dialog: MatDialog,
-		private cdr: ChangeDetectorRef
+		private cdr: ChangeDetectorRef,
+		public xls: SaveToXlsService
 		) {}
 
 	ngOnInit() {
@@ -47,7 +49,10 @@ export class DetailsViewComponent implements OnInit {
 			if(!data) {
 				this.disabledButtons = false;	
 				this.cdr.detectChanges()
-			}		
+			} else {
+				console.log('export', this.data.questions)
+				this.xls.generateXLS("Ankieta:"+this.data.fullName, this.data.questions)
+			}	
 		});
 		this.disabledButtons = true;
 	}
