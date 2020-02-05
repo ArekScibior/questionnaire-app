@@ -6,6 +6,7 @@ import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MainViewComponent } from './main-view/main-view.component';
 import { DetailsViewComponent } from './details-view/details-view.component';
+import { DialogOverviewComponent } from './dialogOverview/dialogOverview.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
 import { HttpClientModule } from '@angular/common/http';
@@ -46,7 +47,8 @@ import {
    declarations: [
       AppComponent,
       DetailsViewComponent,
-      MainViewComponent
+      MainViewComponent,
+      DialogOverviewComponent
    ],
    imports: [
       BrowserModule,
@@ -93,6 +95,7 @@ import {
    providers: [],
    bootstrap: [
       AppComponent
-   ]
+   ],
+   entryComponents: [DialogOverviewComponent]
 })
 export class AppModule { }

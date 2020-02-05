@@ -1,5 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ChangeDetectorRef } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import {MatDialog, MatDialogConfig} from "@angular/material";
+import { DialogOverviewComponent } from '../dialogOverview/dialogOverview.component';
 import { data } from '../../assets/dataQuestionnaire.json';
 
 
@@ -14,7 +16,12 @@ export class DetailsViewComponent implements OnInit {
 	numberOfQuestion: number = 1;
 	buttonName: string = "Next";
 	disabledButtons: boolean = false;
-	constructor(private route: ActivatedRoute) {}
+
+	constructor(
+		private route: ActivatedRoute, 
+		public dialog: MatDialog,
+		private cdr: ChangeDetectorRef
+		) {}
 
 	ngOnInit() {
 		this.route.paramMap.subscribe(params => {
@@ -22,20 +29,43 @@ export class DetailsViewComponent implements OnInit {
 			this.questions = this.data.questions
 		});
 	}
-	goNextQ() {
+	
+	openDialog(): void {
+        const dialogConfig = new MatDialogConfig();
+
+        dialogConfig.disableClose = false;
+		dialogConfig.autoFocus = true;
+		dialogConfig.minWidth = '700px';
+		dialogConfig.height = '200px';
+		dialogConfig.position = {
+			'top': '15%',
+			left: '35%'
+		};
+
+		const dialogRef = this.dialog.open(DialogOverviewComponent, dialogConfig);
+		dialogRef.afterClosed().subscribe(data => {
+			if(!data) {
+				this.disabledButtons = false;	
+				this.cdr.detectChanges()
+			}		
+		});
+		this.disabledButtons = true;
+	}
+	
+	goNextQ(): void {
 		this.numberOfQuestion = this.numberOfQuestion+1
 		if (this.numberOfQuestion > this.questions.length) {
 			this.numberOfQuestion = this.questions.length
-			this.disabledButtons = true;
-			console.log('exported')
+			this.openDialog()
 			return;
 		}
 		if (this.numberOfQuestion < this.questions.length) { this.buttonName = "Next" } else { this.buttonName = "Export to XLS"}
 		
 	}
-	goBack() {
+	goBack(): void {
 		this.numberOfQuestion = this.numberOfQuestion -1
 		if (this.numberOfQuestion < this.questions.length) { this.buttonName = "Next" } else { this.buttonName = "Export to XLS"}
 	}
 
 }
+
