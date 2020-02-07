@@ -15,62 +15,50 @@
     </mat-radio-group>
     <div class='margin-left-10 margin-top-10'>Your answer is: {{questions[numberOfQuestion-1].answer}}</div>
   </div>
+  <button 
+    *ngIf="numberOfQuestion <= 1 || disabledButtons" 
+    disabled 
+    style="margin-top: 20px; margin-left: 10px;" 
+    mat-stroked-button 
+    color="primary" 
+    (click)="goBack()">
+    Previous
+  </button>
+  <button 
+    *ngIf="numberOfQuestion > 1 && !disabledButtons" 
+    style="margin-top: 20px; margin-left: 10px;" 
+    mat-stroked-button 
+    color="primary" 
+    (click)="goBack()">
+    Previous
+  </button>
+  <button 
+    *ngIf="!disabledButtons && questions[numberOfQuestion-1].answer" 
+    style="margin-top: 20px; margin-left: 10px;" 
+    mat-stroked-button 
+    color="primary" 
+    (click)="goNextQ()">
+    {{buttonName}}
+  </button>
+  <button 
+    *ngIf="disabledButtons || !questions[numberOfQuestion-1].answer" 
+    style="margin-top: 20px; margin-left: 10px;" 
+    disabled 
+    mat-stroked-button 
+    color="primary" 
+    (click)="goNextQ()">
+    {{buttonName}}
+  </button>
+  <button 
+    *ngIf="disabledButtons" 
+    style="margin-top: 20px; margin-left: 10px;" 
+    mat-stroked-button 
+    color="primary" 
+    [routerLink]="['/']" 
+    routerLinkActive="router-link-active">
+    Change Subject
+  </button>
+  
+  <app-footer></app-footer>
 </div>
 
-<button 
-  *ngIf="numberOfQuestion <= 1 || disabledButtons" 
-  disabled 
-  style="margin-top: 20px; margin-left: 10px;" 
-  mat-stroked-button 
-  color="primary" 
-  (click)="goBack()">
-  Previous
-</button>
-<button 
-  *ngIf="numberOfQuestion > 1 && !disabledButtons" 
-  style="margin-top: 20px; margin-left: 10px;" 
-  mat-stroked-button 
-  color="primary" 
-  (click)="goBack()">
-  Previous
-</button>
-<button 
-  *ngIf="!disabledButtons && questions[numberOfQuestion-1].answer" 
-  style="margin-top: 20px; margin-left: 10px;" 
-  mat-stroked-button 
-  color="primary" 
-  (click)="goNextQ()">
-  {{buttonName}}
-</button>
-<button 
-  *ngIf="disabledButtons || !questions[numberOfQuestion-1].answer" 
-  style="margin-top: 20px; margin-left: 10px;" 
-  disabled 
-  mat-stroked-button 
-  color="primary" 
-  (click)="goNextQ()">
-  {{buttonName}}
-</button>
-<button 
-  *ngIf="disabledButtons" 
-  style="margin-top: 20px; margin-left: 10px;" 
-  mat-stroked-button 
-  color="primary" 
-  [routerLink]="['/']" 
-  routerLinkActive="router-link-active">
-  Change Subject
-</button>
-
-<mat-toolbar style='margin-top:5rem'>
-  <div class="center-links"><label for="" style="margin-right:8px;">Visit me on github: </label> 
-    <a target="_blank" href="https://github.com/ArekScibior">
-      <img style="margin-bottom: -8px;" src="../../assets/images/GitHub-Mark-32px.png" alt=""/>
-    </a>
-  </div> 
-  <div class="center-links">&nbsp;<label for="" style="margin-right:8px;">Visit me on LinkedIn:</label> 
-    <a target="_blank" href="https://www.linkedin.com/in/arek-scibior/">
-      <img style="margin-bottom: -8px;" src="../../assets/images/linkedin-logo.png" alt=""/>
-    </a>
-  </div> 
-</mat-toolbar>
-<!-- Icons made by <a href="https://www.flaticon.com/authors/google" title="Google">Google</a> from <a href="https://www.flaticon.com/" title="Flaticon"> www.flaticon.com</a> -->

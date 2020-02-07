@@ -6,6 +6,7 @@ import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MainViewComponent } from './main-view/main-view.component';
 import { DetailsViewComponent } from './details-view/details-view.component';
+import { FooterComponent } from './common/footer/footer.component';
 import { DialogOverviewComponent } from './dialogOverview/dialogOverview.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
@@ -48,7 +49,8 @@ import {
       AppComponent,
       DetailsViewComponent,
       MainViewComponent,
-      DialogOverviewComponent
+      DialogOverviewComponent,
+      FooterComponent
    ],
    imports: [
       BrowserModule,
