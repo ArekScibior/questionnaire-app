@@ -60,7 +60,7 @@ import {
       ReactiveFormsModule,
       RouterModule.forRoot([
          { path: '', component: MainViewComponent },
-         { path: 'subjects/:subjectId', component: DetailsViewComponent },
+         { path: 'subjects/:subjectName', component: DetailsViewComponent },
        ]),
       MatAutocompleteModule,
       MatButtonModule,

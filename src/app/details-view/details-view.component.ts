@@ -4,6 +4,7 @@ import {MatDialog, MatDialogConfig} from "@angular/material";
 import { DialogOverviewComponent } from '../dialogOverview/dialogOverview.component';
 import { SaveToXlsService } from '../services/save-to-xls.service';
 import { data } from '../../assets/dataQuestionnaire.json';
+import { _ } from 'underscore';
 
 
 @Component({
@@ -27,7 +28,9 @@ export class DetailsViewComponent implements OnInit {
 
 	ngOnInit() {
 		this.route.paramMap.subscribe(params => {
-			this.data = data[+params.get('subjectId')];
+			this.data = _.find(data, (v, key) => {
+				return v.fullName == params.get('subjectName')
+			})
 			this.questions = this.data.questions
 		});
 	}
